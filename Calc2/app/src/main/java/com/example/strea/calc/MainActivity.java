@@ -1,6 +1,5 @@
 package com.example.strea.calc;
 
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -35,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String oper = "";
     Button btnNotify;
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,9 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         // формируем строку вывода
-       tvResult.setText(num1 + " " + oper + " " + num2 + " = " + result);
+        tvResult.setText(num1 + " " + oper + " " + num2 + " = " + result);
 
-}
+    }
 
     // создание меню
     @Override
@@ -133,18 +134,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
 
     }
-    public void onShow (View v){
-       Toast toast = Toast.makeText(getApplicationContext(),"Работу выполнил Кулаков Александр", Toast.LENGTH_LONG);
-       toast.show();
-    }
-    public void getnotifycation(View view){
-        NotificationManager notificationmgr = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        Notification notif = new Notification.Builder(this)
-                .setSmallIcon(R.drawable.example_picture)
-                .setContentTitle("Cпасибо что вы с нами")
-                .setContentText("Калькулятор успешно запущен")
-                .build();
-        notificationmgr.notify(0,notif);
 
+    public void onShow(View v) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Работу выполнил Кулаков Александр", Toast.LENGTH_LONG);
+        toast.show();
     }
+
+
+        public void getNotification(View view){
+        Intent DisplayNotif = new Intent(MainActivity.this, DisplayNotif.class);
+        startService(DisplayNotif);
+    }
+
+
 }
